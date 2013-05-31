@@ -1,0 +1,30 @@
+<h2>Modalidades</h2>
+
+<table border="1">
+<tr>
+<td>
+Id
+</td>
+<td>
+Modalidade
+</td>
+<td>Opções</td>
+</tr>
+<?php foreach($this->modalidades as $modalidade):?>
+<tr>
+<td><?php echo $this->escape($modalidade['Id_Modalidade'])?></td>
+<td><?php echo $this->escape($modalidade['Modalidade'])?></td>
+<td>
+<a href="<?php echo $this->url(array('controller'=>'modalidade',
+'action'=>'alterar', 'id'=>$modalidade['Id_Modalidade']));?>">Alterar</a>
+<a href="<?php echo $this->url(array(  'controller'=>'modalidade',
+'action'=>'excluir', 'id'=>$modalidade['Id_Modalidade']));?>">Excluir</a>
+</td>
+</tr>
+<?php endforeach;?>
+</table>
+
+
+
+
+

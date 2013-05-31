@@ -1,0 +1,40 @@
+<h2>Fornecedores</h2>
+
+<h4><a href="/sga/admin/fornecedor/inserir">Inserir</a> </h4><br>
+<table border="1" class="center">
+<tr>
+<td>CNPJ</td>
+<td>Razão Social</td>
+<td>Endereço</td>
+<td>Número</td>
+<td>Telefone</td>
+<td>E-mail</td>
+<td>Cidade</td>
+<td>Estado</td>
+<td>Opções</td>
+</tr>
+<?php 
+foreach ($this->fornecedores as $fornecedor):
+?>
+<tr>
+<td><?php echo $this->escape($fornecedor['CNPJ']);?></td>
+<td><?php echo $this->escape($fornecedor['Razao_Social']);?></td>
+<td><?php echo $this->escape($fornecedor['Endereco']);?></td>
+<td><?php echo $this->escape($fornecedor['Numero']);?></td>
+<td><?php echo $this->escape($fornecedor['Telefone']);?></td>
+<td><?php echo $this->escape($fornecedor['E_mail']);?></td>
+<td><?php echo $this->escape($fornecedor['Cidade']);?></td>
+<td><?php echo $this->escape($fornecedor['Sigla']);?></td>
+
+<td>
+<a href="<?php echo $this->url(array('controller'=>'fornecedor',
+'action'=>'alterar', 'id'=>$fornecedor['CNPJ']));?>">Alterar</a>
+<a href="<?php echo $this->url(array(  'controller'=>'fornecedor',
+'action'=>'excluir', 'id'=>$fornecedor['CNPJ']));?>">Excluir</a>
+</td>
+
+
+</tr>
+<?php endforeach;?>
+
+</table>

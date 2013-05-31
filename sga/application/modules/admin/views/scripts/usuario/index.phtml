@@ -1,0 +1,43 @@
+
+<h2>Usuários</h2>
+
+<table border="1">
+<tr>
+<td>CPF</td>
+<td>Nome</td>
+<td>Endereço</td>
+<td>Número</td>
+<td>Telefone</td>
+<td>Data de Nascimento</td>
+<td>Sexo</td>
+<td>E-mail</td>
+<td>Profissão</td>
+<td>Perfil</td>
+<td>Opções</td>
+</tr>
+<?php 
+foreach($this->usuarios as $usuario):
+?>
+<tr>
+
+<td><?php echo $this->escape($usuario['CPF']);?></td>
+<td><?php echo $this->escape($usuario['Nome']);?></td>
+<td><?php echo $this->escape($usuario['Endereco']);?></td>
+<td><?php echo $this->escape($usuario['Numero']);?></td>
+<td><?php echo $this->escape($usuario['Telefone']);?></td>
+<td><?php echo $this->escape($usuario['Data_nascimento']);?></td>
+<td><?php echo $this->escape($usuario['Sexo']);?></td>
+<td><?php echo $this->escape($usuario['E_mail']);?></td>
+<td><?php echo $this->escape($usuario['Profissao']);?></td>
+<td><?php echo $this->escape($usuario['Perfil']);?></td>
+<td>
+<a href="<?php echo $this->url(array('controller'=>'usuario',
+'action'=>'alterar', 'id'=>$usuario['Id_Usuario']));?>">Alterar</a>
+<a href="<?php echo $this->url(array(  'controller'=>'usuario',
+'action'=>'excluir', 'id'=>$usuario['Id_Usuario']));?>">Excluir</a>
+</td>
+
+
+</tr>
+<?php endforeach;?>
+</table>

@@ -1,0 +1,49 @@
+<html><head>
+<title>Bem Vindo ao SGA</title> 
+<meta http-equiv="Content-type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<div align="center">
+<table>
+<tr><td><h3>Logo SGA</h3></td><td><h3>Sobre a Empresa</h3></td><td><h3>Contato</h3></td>
+
+</tr></table>
+</div>
+<br><br><br><br>
+<h1 align=center><?php echo $this->titulo?></h1>
+<div align="center">
+<table class="center" border="1">
+<tr>
+<th>Modelo</th>
+<th>Marca</th>
+<th>Estado</th>
+<th>Cor</th>
+<th>Preço</th>
+<th>Visualização</th>
+
+</tr>
+<?php 
+foreach ($this->veiculos as $veiculo):
+	?>
+	<tr>
+<td><?php echo $this->escape($veiculo['Modelo']);?></td>
+<td><?php echo $this->escape($veiculo['Marca']);?></td>
+<td><?php echo $this->escape($veiculo['Sigla']);?></td>
+<td><?php echo $this->escape($veiculo['Cor']);?></td>
+<td>R$ <?php echo $this->escape($veiculo['Preco']);?>,00</td>
+<td><a href='<?php echo $this->escape($veiculo['Foto']);?>'><img src='<?php echo'/sga/public/imagem/'. $this->escape($veiculo['Foto']);?>' width="80"></a></td>
+
+</tr>
+<?php 
+endforeach;?> 
+</table>
+</div>
+<div align="center">
+<h4>Entre na área restrita</h4>
+<?php echo ( sizeof( $this->messages ) > 0 ) ? $this->messages[0] : ""; ?>
+<?php echo $this->form; ?>
+<a href="http://localhost/sga/public/form_cliente.php">Cadastra-se</a>
+</div>
+
+</body>
+</html>

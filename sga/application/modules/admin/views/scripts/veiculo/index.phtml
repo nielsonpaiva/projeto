@@ -1,0 +1,43 @@
+<?php echo "<h2>Inserir Veículos</h2>"?>
+<?php echo $this->form; ?>
+
+<table class="center" border="1">
+<tr>
+<th>Id</th>
+<th>Marca</th>
+<th>Modelo</th>
+<th>Cor</th>
+<th>Cidade</th>
+<th>Estado</th>
+<th>Preço</th>
+<th>Fornecedor</th>
+<th>Visualização</th>
+<th>Opções</th>
+</tr>
+<?php 
+foreach ($this->veiculos as $veiculo):
+	?>
+	<tr>
+	<td><?php echo $this->escape($veiculo['Id_Veiculo']);?></td>
+<td><?php echo $this->escape($veiculo['Marca']);?></td>
+<td><?php echo $this->escape($veiculo['Modelo']);?></td>
+<td><?php echo $this->escape($veiculo['Cor']);?></td>
+<td><?php echo $this->escape($veiculo['Cidade']);?></td>
+<td><?php echo $this->escape($veiculo['Sigla']);?></td>
+<td><?php echo "R$ ". $this->escape($veiculo['Preco']) . ".00";?></td>
+<td><?php echo $this->escape($veiculo['Razao_Social']);?></td>
+<td><img src='<?php echo'/sga/public/imagem/'. $this->escape($veiculo['Foto']);?>' width="80"></td>
+
+
+
+<td>
+<a href="<?php echo $this->url(array(  'controller'=>'veiculo',
+'action'=>'upload', 'id'=>$veiculo['Id_Veiculo']));?>">Inserir imagem</a>
+<a href="<?php echo $this->url(array('controller'=>'veiculo',
+'action'=>'alterar', 'id'=>$veiculo['Id_Veiculo']));?>">Alterar</a>
+<a href="<?php echo $this->url(array(  'controller'=>'veiculo',
+'action'=>'excluir', 'id'=>$veiculo['Id_Veiculo']));?>">Excluir</a>
+</td>
+</tr>
+<?php 
+endforeach;?> 

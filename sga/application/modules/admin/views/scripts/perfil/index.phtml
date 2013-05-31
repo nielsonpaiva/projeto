@@ -1,0 +1,25 @@
+<h2>Perfis</h2>
+
+<table border="1">
+<tr>
+<td>
+Id
+</td>
+<td>
+Perfil
+</td>
+<td>Opções</td>
+</tr>
+<?php foreach($this->perfis as $perfil):?>
+<tr>
+<td><?php echo $this->escape($perfil['Id_Perfil'])?></td>
+<td><?php echo $this->escape($perfil['Perfil'])?></td>
+<td>
+<a href="<?php echo $this->url(array('controller'=>'perfil',
+'action'=>'alterar', 'id'=>$perfil['Id_Perfil']));?>">Alterar</a>
+<a href="<?php echo $this->url(array(  'controller'=>'perfil',
+'action'=>'excluir', 'id'=>$perfil['Id_Perfil']));?>">Excluir</a>
+</td>
+</tr>
+<?php endforeach;?>
+</table>
